@@ -234,7 +234,7 @@
 
 ;; the library containing the C copying callbacks
 (define callbacks-lib (or (ffi-lib (build-path lib
-                                               (system-library-subpath)
+                                               (system-library-subpath #f)
                                                "callbacks")
                                    #:fail (λ () #f))
                           ;; also look in "standard locations". useful

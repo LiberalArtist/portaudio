@@ -16,7 +16,7 @@
 
 (define-runtime-path lib-path "lib")
 ;; use local copies of the libraries for Windows & Mac...
-(define win-dll-path (build-path lib-path (system-library-subpath) "portaudio"))
+(define win-dll-path (build-path lib-path (system-library-subpath #f) "portaudio"))
 (define mac-dll-path (build-path lib-path "libportaudio"))
 
 (define linux-err-msg
