@@ -7,7 +7,11 @@
          "portaudio.rkt"
          (only-in racket/match match-define))
 
-(define-runtime-path lib "lib/")
+(define-runtime-path lib
+  ;; FIXME there may be a better way to do
+  ;; this with the (list 'so ...) variant for the
+  ;; right-hand side.
+  "lib/")
 
 ;; this module provides an intermediate layer between 
 ;; the raw C primitives of portaudio and the higher-level
@@ -243,6 +247,7 @@
 
 ;; in order to get a raw pointer to pass back to C, we declare 
 ;; the function pointers as being simple structs:
+;; ???? would _fpointer work here?
 (define-cstruct _bogus-struct
   ([datum _uint16]))
 
